@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,13 +38,11 @@
             height: 100%;
             z-index: -1;
             opacity: 0.1;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 20px,
-                var(--dark) 20px,
-                var(--dark) 21px
-            );
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 20px,
+                    var(--dark) 20px,
+                    var(--dark) 21px);
         }
 
         .binary-text {
@@ -105,7 +104,8 @@
             border-radius: 4px;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a.active {
             color: var(--primary);
             background: rgba(0, 255, 157, 0.1);
         }
@@ -242,7 +242,8 @@
             color: var(--gray);
         }
 
-        input, select {
+        input,
+        select {
             padding: 0.8rem;
             background: rgba(5, 5, 16, 0.8);
             border: 1px solid rgba(0, 102, 255, 0.3);
@@ -251,7 +252,8 @@
             font-size: 1rem;
         }
 
-        input:focus, select:focus {
+        input:focus,
+        select:focus {
             outline: none;
             border-color: var(--secondary);
             box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.2);
@@ -307,7 +309,8 @@
             margin-top: 1.5rem;
         }
 
-        .comparison-table th, .comparison-table td {
+        .comparison-table th,
+        .comparison-table td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -369,18 +372,165 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-            
+
             .grid {
                 grid-template-columns: 1fr;
             }
         }
+
+
+        /* ====== Section Styling ====== */
+        #uses-significance {
+            position: relative;
+            padding: 6rem 2rem;
+            color: #eaffea;
+            overflow: hidden;
+            background: #0b0f0c;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #00ff80;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 0 15px #00ff80;
+        }
+
+        .section-intro {
+            text-align: center;
+            color: #9be5b5;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* ====== Animated Binary Background ====== */
+        .binary-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(rgba(0, 255, 128, 0.1) 1px,
+                    transparent 2px),
+                repeating-linear-gradient(90deg,
+                    rgba(0, 255, 128, 0.05) 1px,
+                    transparent 2px);
+            background-size: 40px 40px;
+            animation: moveGrid 15s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveGrid {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+
+        /* ====== Grid Layout ====== */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        /* ====== Card Style ====== */
+        .card {
+            background: rgba(10, 30, 20, 0.6);
+            border: 1px solid rgba(0, 255, 128, 0.3);
+            border-radius: 20px;
+            padding: 1.8rem;
+            color: #c8ffdc;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 25px rgba(0, 255, 128, 0.1);
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 255, 128, 0.3);
+        }
+
+        .card h3 {
+            color: #00ff80;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #dfffe8;
+        }
+
+        /* ====== Icons ====== */
+        .icon-group,
+        .binary-icons,
+        .importance-visual,
+        .summary-visual {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 1.3rem;
+            font-size: 1.8rem;
+            color: #00ff80;
+        }
+
+        .binary-text {
+            font-size: 1.3rem;
+            color: #00ff80;
+        }
+
+        /* ====== Binary String ====== */
+        .binary-string {
+            margin-top: 1rem;
+            background: rgba(0, 255, 128, 0.1);
+            border: 1px solid rgba(0, 255, 128, 0.2);
+            border-radius: 10px;
+            padding: 0.8rem;
+            font-family: "Courier New", monospace;
+            overflow-x: auto;
+            white-space: nowrap;
+            color: #00ff80;
+        }
+
+        /* ====== Fade Animation ====== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
     </style>
 </head>
+
 <body>
     <div class="binary-bg"></div>
     <div class="binary-text" id="binaryText"></div>
@@ -406,7 +556,8 @@
     <section class="hero">
         <div class="container">
             <h1>Understanding Binary Codes</h1>
-            <p>Discover the fundamental language of computers - the simple yet powerful system of 1s and 0s that powers our digital world.</p>
+            <p>Discover the fundamental language of computers - the simple yet powerful system of 1s and 0s that powers
+                our digital world.</p>
             <a href="#meaning" class="btn">Explore Binary</a>
         </div>
     </section>
@@ -416,9 +567,13 @@
             <h2 class="section-title">Meaning of Binary Codes</h2>
             <div class="card">
                 <h3><i class="fas fa-question-circle"></i> What are Binary Codes?</h3>
-                <p>Binary code is a system of representing text, computer processor instructions, or any other data using a two-symbol system. The two symbols are typically "0" and "1", representing the OFF and ON states of electrical signals in digital circuits.</p>
-                <p>Think of binary code as the most fundamental language that computers understand. While humans use a decimal system (base-10) with digits from 0 to 9, computers use a binary system (base-2) with only 0 and 1.</p>
-                
+                <p>Binary code is a system of representing text, computer processor instructions, or any other data
+                    using a two-symbol system. The two symbols are typically "0" and "1", representing the OFF and ON
+                    states of electrical signals in digital circuits.</p>
+                <p>Think of binary code as the most fundamental language that computers understand. While humans use a
+                    decimal system (base-10) with digits from 0 to 9, computers use a binary system (base-2) with only 0
+                    and 1.</p>
+
                 <div class="bit-visualization">
                     <div class="bit bit-1">1</div>
                     <div class="bit bit-0">0</div>
@@ -439,15 +594,21 @@
             <div class="grid">
                 <div class="card">
                     <h3><i class="fas fa-microchip"></i> Digital Foundation</h3>
-                    <p>Binary code is the fundamental language of all digital devices. Modern computers process data using transistors that have two states: on (1) and off (0). This simple binary foundation makes digital systems reliable and efficient.</p>
+                    <p>Binary code is the fundamental language of all digital devices. Modern computers process data
+                        using transistors that have two states: on (1) and off (0). This simple binary foundation makes
+                        digital systems reliable and efficient.</p>
                 </div>
                 <div class="card">
                     <h3><i class="fas fa-universal-access"></i> Universal Representation</h3>
-                    <p>Everything in computing - numbers, text, images, sounds, and videos - is ultimately represented using binary code. This universal representation allows different systems to process and exchange information seamlessly.</p>
+                    <p>Everything in computing - numbers, text, images, sounds, and videos - is ultimately represented
+                        using binary code. This universal representation allows different systems to process and
+                        exchange information seamlessly.</p>
                 </div>
                 <div class="card">
                     <h3><i class="fas fa-bolt"></i> Simplicity & Reliability</h3>
-                    <p>The binary system's simplicity makes it extremely reliable. With only two states to distinguish, digital circuits can operate accurately even in the presence of electrical noise or signal degradation.</p>
+                    <p>The binary system's simplicity makes it extremely reliable. With only two states to distinguish,
+                        digital circuits can operate accurately even in the presence of electrical noise or signal
+                        degradation.</p>
                 </div>
             </div>
         </div>
@@ -458,10 +619,12 @@
             <h2 class="section-title">Binary Number System</h2>
             <div class="card">
                 <h3><i class="fas fa-sort-numeric-down"></i> Base-2 Number System</h3>
-                <p>The binary number system is a base-2 numeral system that uses only two symbols: 0 and 1. Each digit in a binary number is called a bit (binary digit).</p>
-                
-                <p>In the decimal system, each position represents a power of 10. In binary, each position represents a power of 2:</p>
-                
+                <p>The binary number system is a base-2 numeral system that uses only two symbols: 0 and 1. Each digit
+                    in a binary number is called a bit (binary digit).</p>
+
+                <p>In the decimal system, each position represents a power of 10. In binary, each position represents a
+                    power of 2:</p>
+
                 <table class="comparison-table">
                     <thead>
                         <tr>
@@ -498,8 +661,9 @@
                         </tr>
                     </tbody>
                 </table>
-                
-                <p>For example, the binary number 1011 represents: (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2 + 1 = 11 in decimal.</p>
+
+                <p>For example, the binary number 1011 represents: (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2
+                    + 1 = 11 in decimal.</p>
             </div>
         </div>
     </section>
@@ -510,9 +674,11 @@
             <div class="grid">
                 <div class="card">
                     <h3><i class="fas fa-dot-circle"></i> What is a Bit?</h3>
-                    <p>A bit (short for binary digit) is the most basic unit of information in computing. It can have only one of two values: 0 or 1.</p>
-                    <p>Bits represent the fundamental building blocks of digital information. A single bit can represent two states (e.g., true/false, yes/no, on/off).</p>
-                    
+                    <p>A bit (short for binary digit) is the most basic unit of information in computing. It can have
+                        only one of two values: 0 or 1.</p>
+                    <p>Bits represent the fundamental building blocks of digital information. A single bit can represent
+                        two states (e.g., true/false, yes/no, on/off).</p>
+
                     <div class="bit-visualization">
                         <div class="bit bit-1">1</div>
                         <div class="bit bit-0">0</div>
@@ -520,9 +686,12 @@
                 </div>
                 <div class="card">
                     <h3><i class="fas fa-layer-group"></i> What is a Byte?</h3>
-                    <p>A byte is a unit of digital information that consists of 8 bits. It is the fundamental addressable unit in many computer architectures.</p>
-                    <p>One byte can represent 2<sup>8</sup> = 256 different values, ranging from 0 to 255. This is enough to represent all uppercase and lowercase letters, digits, and common punctuation marks.</p>
-                    
+                    <p>A byte is a unit of digital information that consists of 8 bits. It is the fundamental
+                        addressable unit in many computer architectures.</p>
+                    <p>One byte can represent 2<sup>8</sup> = 256 different values, ranging from 0 to 255. This is
+                        enough to represent all uppercase and lowercase letters, digits, and common punctuation marks.
+                    </p>
+
                     <div class="bit-visualization">
                         <div class="bit bit-0">0</div>
                         <div class="bit bit-1">1</div>
@@ -535,7 +704,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="card">
                 <h3><i class="fas fa-weight-hanging"></i> Units of Digital Information</h3>
                 <table class="comparison-table">
@@ -597,13 +766,113 @@
                     <button class="btn" id="convertBtn">Convert to Binary</button>
                     <div class="result" id="binaryResult">Binary: 00101010</div>
                 </div>
-                
+
                 <div class="bit-visualization" id="bitVisualization">
                     <!-- Bits will be generated by JavaScript -->
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ====== Binary Codes Explorer | Uses & Significance ====== -->
+    <section id="uses-significance">
+        <div class="binary-bg"></div>
+        <div class="container">
+            <h2 class="section-title">Binary Codes Explorer | Uses & Significance</h2>
+            <p class="section-intro">
+                Explore how binary codes shape our modern world — from powering every
+                device we use to defining the universal language of technology.
+            </p>
+
+            <div class="grid">
+                <!-- Applications -->
+                <div class="card fade-in">
+                    <h3><i class="fas fa-microchip"></i> Applications in Technology</h3>
+                    <p>
+                        Binary codes are used in almost every digital device we use today.
+                        They serve as the language of computers, allowing machines to process,
+                        store, and communicate information. Computers, smartphones, and other
+                        digital devices rely on binary to display images, play music, and even
+                        connect to the internet.
+                    </p>
+                    <div class="icon-group">
+                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-server"></i>
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                </div>
+
+                <!-- Advantages -->
+                <div class="card fade-in" style="animation-delay: 0.2s">
+                    <h3><i class="fas fa-cogs"></i> Advantages of Binary Codes</h3>
+                    <p>
+                        One of the biggest advantages of binary codes is their simplicity.
+                        Because they only use two symbols, 0 and 1, computers can easily
+                        understand and process them. They are also reliable — there’s less
+                        chance of confusion or error since devices can easily detect the two
+                        states: on and off.
+                    </p>
+                    <div class="binary-icons">
+                        <i class="fas fa-toggle-on"></i>
+                        <i class="fas fa-microchip"></i>
+                        <span class="binary-text">1 <span class="gray">/</span> 0</span>
+                    </div>
+                </div>
+
+                <!-- Limitations -->
+                <div class="card fade-in" style="animation-delay: 0.4s">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Limitations of Binary Codes</h3>
+                    <p>
+                        However, binary codes also have a few limitations. They can be
+                        difficult for humans to read and understand, and they require more
+                        digits to represent large numbers. Despite this, their efficiency and
+                        reliability still make them the best system for computers and
+                        electronic devices.
+                    </p>
+                    <div class="binary-string">
+                        1010101010010110101100101010101011010010110100101010101101001010...
+                    </div>
+                </div>
+
+                <!-- Importance -->
+                <div class="card fade-in" style="animation-delay: 0.6s">
+                    <h3><i class="fas fa-globe"></i> Importance in Modern Technology</h3>
+                    <p>
+                        Binary codes are the foundation of all digital technology. Without
+                        them, computers, smartphones, and even the internet wouldn’t exist.
+                        They make it possible for machines to perform calculations, store
+                        data, and communicate efficiently. In short, binary is the universal
+                        language of technology.
+                    </p>
+                    <div class="importance-visual">
+                        <i class="fas fa-laptop-code"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-network-wired"></i>
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="card summary-card fade-in" style="animation-delay: 0.8s">
+                    <h3><i class="fas fa-clipboard-check"></i> Summary</h3>
+                    <p>
+                        Binary codes may seem simple, but they play a vital role in our lives.
+                        From phones to computers, they make digital communication and
+                        computation possible. Their simplicity, accuracy, and universal use
+                        make them one of the most important concepts in modern mathematics and
+                        technology.
+                    </p>
+                    <div class="summary-visual">
+                        <i class="fas fa-laptop"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-brain"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <footer>
         <div class="container">
@@ -630,12 +899,12 @@
         const binaryText = document.getElementById('binaryText');
         const binaryChars = '01';
         let binaryContent = '';
-        
+
         for (let i = 0; i < 2000; i++) {
             binaryContent += binaryChars.charAt(Math.floor(Math.random() * binaryChars.length));
             if (i % 100 === 0 && i !== 0) binaryContent += '<br>';
         }
-        
+
         binaryText.innerHTML = binaryContent;
 
         // Binary converter functionality
@@ -654,10 +923,10 @@
                 binaryResult.textContent = 'Please enter a number between 0 and 255';
                 return;
             }
-            
+
             const binaryValue = decimalToBinary(decimalValue);
             binaryResult.textContent = `Binary: ${binaryValue}`;
-            
+
             // Update bit visualization
             bitVisualization.innerHTML = '';
             for (let i = 0; i < binaryValue.length; i++) {
@@ -676,12 +945,12 @@
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                
+
                 window.scrollTo({
                     top: targetSection.offsetTop - 80,
                     behavior: 'smooth'
@@ -690,19 +959,19 @@
         });
 
         // Update active navigation link on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
-            
+
             let currentSection = '';
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
                 if (window.scrollY >= sectionTop) {
                     currentSection = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${currentSection}`) {
@@ -712,4 +981,5 @@
         });
     </script>
 </body>
+
 </html>
